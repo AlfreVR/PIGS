@@ -1,1 +1,74 @@
-<p>payment works!</p>
+<main>
+
+  <section id="order-details">
+    <h1>Order details</h1>
+
+      <div id="details-container">
+        <p>Plan name</p>
+        <p>X,XX €/month</p>
+
+        <details id="feature-list" open="open">
+          <summary>Plan features</summary>
+          <ul>
+            <li>Feature 1</li>
+            <li>Feature 2</li>
+            <li>Feature 3</li>
+          </ul>
+        </details>
+
+        <details id="server-features-list" open="open">
+          <summary>Server features</summary>
+          <ul>
+            <li>Server feature 1</li>
+            <li>Server feature 2</li>
+            <li>Server feature 3</li>
+          </ul>
+        </details>
+
+      </div>
+
+  </section>
+
+  <section id="payment-details">
+    <h1>Payment details</h1>
+
+    <div id="cardholder-details">
+      <label for="cardholder-name">Cardholder name</label>
+      <input type="text" id="cardholder-name">
+      <label for="cardholder-address">Cardholder address</label>
+      <input type="text" id="cardholder-address">
+    </div>
+
+    <div id="card-details">
+
+      <label for="card-number1">Card number</label>
+      <input type="text" id="card-number1" size="4">
+      <input type="text" id="card-number2" size="4">
+      <input type="text" id="card-number3" size="4">
+      <input type="text" id="card-number4" size="4">
+
+      <label for="expiration-month">Expiration date</label>
+      <input type="number"
+             id="expiration-month"
+             min="1" max="12"
+      >
+      <input type="number"
+             id="expiration-year"
+             min="25" max="32"
+      >
+
+      <label for="CVV">CVV</label>
+      <input type="text" id="CVV" size="4">
+
+      <input type="checkbox" id="TC-check">
+      <label for="TC-check">I accept the terms and conditions</label>
+
+      <input type="checkbox" id="card-save-check">
+      <label for="card-save-check">I would like to save my card details for future payments</label>
+
+      <button type="submit" title="Proceed to payment">Proceed to payment</button>
+
+    </div>
+  </section>
+
+</main>
