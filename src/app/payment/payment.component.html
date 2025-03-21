@@ -1,11 +1,12 @@
 <main>
 
-  <section id="order-details">
-    <h1>Order details</h1>
+  <div id="form-container">
+    <section id="order-details">
+      <h1>Order details</h1>
 
       <div id="details-container">
-        <p>Plan name</p>
-        <p>X,XX €/month</p>
+        <p id="plan-name">Plan name</p>
+        <p id="price-text">X,XX €/<span id="month-text">month</span></p>
 
         <details id="feature-list" open="open">
           <summary>Plan features</summary>
@@ -27,48 +28,79 @@
 
       </div>
 
-  </section>
+    </section>
 
-  <section id="payment-details">
-    <h1>Payment details</h1>
+    <hr>
 
-    <div id="cardholder-details">
-      <label for="cardholder-name">Cardholder name</label>
-      <input type="text" id="cardholder-name">
-      <label for="cardholder-address">Cardholder address</label>
-      <input type="text" id="cardholder-address">
-    </div>
+    <section id="payment-details">
+      <h1>Payment details</h1>
 
-    <div id="card-details">
+      <div id="cardholder-details">
 
-      <label for="card-number1">Card number</label>
-      <input type="text" id="card-number1" size="4">
-      <input type="text" id="card-number2" size="4">
-      <input type="text" id="card-number3" size="4">
-      <input type="text" id="card-number4" size="4">
+        <div id="cardholder-name-container">
+          <label for="cardholder-name">Cardholder name</label>
+          <input type="text" id="cardholder-name">
+        </div>
 
-      <label for="expiration-month">Expiration date</label>
-      <input type="number"
-             id="expiration-month"
-             min="1" max="12"
-      >
-      <input type="number"
-             id="expiration-year"
-             min="25" max="32"
-      >
+        <div id="cardholder-address-container">
+          <label for="cardholder-address">Cardholder address</label>
+          <input type="text" id="cardholder-address">
+        </div>
 
-      <label for="CVV">CVV</label>
-      <input type="text" id="CVV" size="4">
 
-      <input type="checkbox" id="TC-check">
-      <label for="TC-check">I accept the terms and conditions</label>
+      </div>
 
-      <input type="checkbox" id="card-save-check">
-      <label for="card-save-check">I would like to save my card details for future payments</label>
+      <div id="card-details">
 
-      <button type="submit" title="Proceed to payment">Proceed to payment</button>
+        <div id="card-number-container">
+          <label for="card-number1" id="card-number-label">Card number</label>
 
-    </div>
-  </section>
+          <div id="card-number-inputs">
+            <input type="text" id="card-number1" size="4">
+            <input type="text" id="card-number2" size="4">
+            <input type="text" id="card-number3" size="4">
+            <input type="text" id="card-number4" size="4">
+          </div>
+
+        </div>
+
+        <div id="expiration-date-container">
+          <label for="expiration-month">Expiration date</label>
+
+          <div id="expiration-date-inputs">
+            <input type="number"
+               id="expiration-month"
+               min="1" max="12"
+        >
+            <input type="number"
+               id="expiration-year"
+               min="25" max="32"
+        >
+          </div>
+
+        </div>
+
+        <div id="cvv-container">
+          <label for="CVV">CVV</label>
+          <input type="text" id="CVV" size="4">
+        </div>
+
+        <div id="TC-check-container">
+          <input type="checkbox" id="TC-check">
+          <label for="TC-check">I accept the terms and conditions</label>
+        </div>
+
+        <div id="card-save-check-container">
+          <input type="checkbox" id="card-save-check">
+          <label for="card-save-check">I would like to save my card details for future payments</label>
+        </div>
+
+        <div id="button-container">
+          <button type="submit" title="Proceed to payment">Proceed to payment</button>
+        </div>
+
+      </div>
+    </section>
+  </div>
 
 </main>
