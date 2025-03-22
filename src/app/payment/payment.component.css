@@ -21,6 +21,23 @@ div#form-container {
   padding-right: 50px;
 }
 
+div#form-container div.alert {
+  text-align: center;
+  border: 1px solid black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  background-color: #AEC3B0;
+  font-weight: bold;
+  font-size: small;
+  width: 100%;
+}
+
+div#form-container input.ng-invalid.ng-touched, input.ng-invalid.ng-dirty {
+  border: 2px solid red;
+  background-color: #ffe4e4;
+}
+
 div#form-container input {
   border: 1px solid black;
   border-radius: 25px;
@@ -79,11 +96,6 @@ div#details-container details#feature-list li::before {
 
 div#details-container details#server-features-list ul {
   list-style: disc;
-}
-
-div#details-container details ul li img {
-  scale: 0.60;
-  grid-column: 1;
 }
 
 section#payment-details {
@@ -160,6 +172,7 @@ div#card-details div#expiration-date-container {
   grid-column: 1;
   display: grid;
   grid-template-rows: repeat(2, auto);
+  justify-content: left;
 }
 
 div#card-details div#expiration-date-container input {
@@ -170,11 +183,12 @@ div#card-details div#cvv-container {
   grid-row: 2;
   grid-column: 2;
   display: grid;
-  grid-template-rows: repeat(2, auto);
+  grid-template-rows: repeat(2, min-content);
 }
 
 div#card-details div#cvv-container input {
   width: min-content;
+  height: min-content;
 }
 
 div#card-details div#TC-check-container {
@@ -206,4 +220,8 @@ div#card-details div#button-container button:hover {
 
 div#card-details div#button-container button:active {
   background-color: #7ba17e;
+}
+
+div#card-details div#button-container button:disabled {
+  background-color: #EFF6E0;
 }
