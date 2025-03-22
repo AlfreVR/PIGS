@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Firestore, collection, collectionData, addDoc, doc, updateDoc, deleteDoc,DocumentData, WithFieldValue } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import {Server} from '../pages/firestore/server';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,9 @@ export class FirestoreService {
   constructor(private firestore: Firestore) {}
 
   // Obtener datos en tiempo real
-  getCollection<T>(path: string): Observable<T[]> {
+  getCollection(path: string): Observable<Server[]> {
     const ref = collection(this.firestore, path);
-    return collectionData(ref, { idField: 'id' }) as Observable<T[]>;
+    return collectionData(ref, { idField: 'id' }) as Observable<Server[]>;
   }
 
   // Agregar un documento

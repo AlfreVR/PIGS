@@ -1,1 +1,25 @@
-<p>firestore works!</p>
+<div class="container">
+  <h2>Gestión de Servidores</h2>
+
+
+  <table>
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Disco</th>
+      <th>CPU</th>
+      <th>RAM</th>
+      <th>Reservado</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let server of servers">
+      <td>{{ server.Name }}</td>
+      <td>{{ server.Disk }} GB</td>
+      <td>{{ server.CPU }} GHz</td>
+      <td>{{ server.RAM }} GB</td>
+      <td>{{ server.Reserved ? 'Sí' : 'No' }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
