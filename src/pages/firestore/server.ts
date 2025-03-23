@@ -5,4 +5,5 @@ export interface Server {
   CPU: number;
   RAM: number;
   Reserved: boolean;
+  Price: number;
 }
