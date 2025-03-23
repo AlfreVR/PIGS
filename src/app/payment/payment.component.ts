@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {NgIf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
+import {Server} from '../app.interfaces';
 
 @Component({
   selector: 'app-payment',
   imports: [
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    NgForOf
   ],
   templateUrl: './payment.component.html',
   styleUrl: './payment.component.css'
@@ -30,6 +32,16 @@ export class PaymentComponent {
     tcCheck: new FormControl(false, Validators.requiredTrue),
     saveCardNumber: new FormControl(true),
   });
+
+  server: Server = {
+    Name: "Eco & Econ",
+    Disk: 128,
+    CPU: 2,
+    RAM: 8,
+    Reserved: false,
+  };
+
+  planFeaturesIncluded: Array<string> = ["Feature 1", "Feature 2", "Feature 3"];
 
   submitForm() {
     console.log("Payment Submitted with this data:");
