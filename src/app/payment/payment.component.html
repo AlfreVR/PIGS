@@ -10,19 +10,18 @@
 
         <details id="feature-list" open="open">
           <summary>Plan features</summary>
-          <ul>
-            <li>Feature 1</li>
-            <li>Feature 2</li>
-            <li>Feature 3</li>
+          <ul *ngFor="let feature of planFeaturesIncluded">
+            <li>{{feature}}</li>
           </ul>
         </details>
 
         <details id="server-features-list" open="open">
           <summary>Server features</summary>
           <ul>
-            <li>Server feature 1</li>
-            <li>Server feature 2</li>
-            <li>Server feature 3</li>
+            <li>Name: {{server.Name}}</li>
+            <li>Disk: {{server.Disk}} GB</li>
+            <li>CPU: {{server.CPU}} vCores</li>
+            <li>RAM: {{server.RAM}} GB</li>
           </ul>
         </details>
 

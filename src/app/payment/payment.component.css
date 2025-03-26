@@ -95,7 +95,8 @@ div#details-container details#feature-list li::before {
 }
 
 div#details-container details#server-features-list ul {
-  list-style: disc;
+  list-style: none;
+  padding: 0;
 }
 
 section#payment-details {
