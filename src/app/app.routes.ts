@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { PaymentComponent } from './payment/payment.component';
-import { PlansComponent } from './plans/plans.component';
+import { PaymentComponent } from '../pages/payment/payment.component';
+import { PlansComponent } from '../pages/plans/plans.component';
 import { FirestoreComponent } from '../pages/firestore/firestore.component';
 import { ServerShopComponent } from '../pages/server-shop/server-shop.component';
 

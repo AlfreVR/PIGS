@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NgForOf, NgIf} from '@angular/common';
-import {Server} from '../app.interfaces';
+import {Server} from '../../app/app.interfaces';
 
 @Component({
   selector: 'app-payment',

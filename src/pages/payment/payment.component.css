@@ -89,7 +89,7 @@ div#details-container details#feature-list li::before {
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-image: url('/assets/check.png');
+  background-image: url('/src/assets/check.png');
   background-size: cover;
   margin-right: 8px;
 }
