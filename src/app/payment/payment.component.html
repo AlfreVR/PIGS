@@ -1,0 +1,153 @@
+<main>
+
+  <div id="form-container">
+    <section id="order-details">
+      <h1>Order details</h1>
+
+      <div id="details-container">
+        <p id="plan-name">Plan name</p>
+        <p id="price-text">X,XX €/<span id="month-text">month</span></p>
+
+        <details id="feature-list" open="open">
+          <summary>Plan features</summary>
+          <ul *ngFor="let feature of planFeaturesIncluded">
+            <li>{{feature}}</li>
+          </ul>
+        </details>
+
+        <details id="server-features-list" open="open">
+          <summary>Server features</summary>
+          <ul>
+            <li>Name: {{server.Name}}</li>
+            <li>Disk: {{server.Disk}} GB</li>
+            <li>CPU: {{server.CPU}} vCores</li>
+            <li>RAM: {{server.RAM}} GB</li>
+          </ul>
+        </details>
+
+      </div>
+
+    </section>
+
+    <hr>
+
+    <section id="payment-details">
+      <h1>Payment details</h1>
+
+      <form [formGroup]="paymentForm" (ngSubmit)="submitForm()">
+        <div id="cardholder-details">
+
+          <div id="cardholder-name-container">
+            <label for="cardholder-name">Cardholder name</label>
+            <input type="text" id="cardholder-name" formControlName="name" required>
+            <div *ngIf="(name?.dirty || name?.touched) && name?.invalid" class="alert">
+              This field is required
+            </div>
+          </div>
+
+          <div id="cardholder-address-container">
+            <label for="cardholder-address">Cardholder address</label>
+            <input type="text" id="cardholder-address" formControlName="address">
+            <div *ngIf="(address?.dirty || address?.touched) && address?.invalid" class="alert">
+              This field is required
+            </div>
+          </div>
+
+
+        </div>
+
+        <div id="card-details">
+
+          <div id="card-number-container">
+            <label for="card-number1" id="card-number-label">Card number</label>
+
+            <div id="card-number-inputs">
+              <input type="text" id="card-number1" size="4"
+                     formControlName="cardNumber1" autocomplete="off"
+                     placeholder="****"
+              >
+
+              <input type="text" id="card-number2" size="4"
+                     formControlName="cardNumber2" autocomplete="off"
+                     placeholder="****"
+              >
+              <input type="text" id="card-number3" size="4"
+                     formControlName="cardNumber3" autocomplete="off"
+                     placeholder="****"
+              >
+              <input type="text" id="card-number4" size="4"
+                     formControlName="cardNumber4" autocomplete="off"
+                     placeholder="****"
+              >
+            </div>
+            <div *ngIf="getCardNumberInvalid()" class="alert">
+              <div *ngIf="checkCardNumberError('required')">This field is required</div>
+              <div *ngIf="checkCardNumberError('pattern')">Card number has not been entered correctly</div>
+            </div>
+
+          </div>
+
+          <div id="expiration-date-container">
+            <label for="expiration-month">Expiration date</label>
+
+            <div id="expiration-date-inputs">
+              <input type="number"
+                     id="expiration-month"
+                     min="1" max="12"
+                     formControlName="expirationMonth"
+                     autocomplete="off"
+              >
+              <input type="number"
+                     id="expiration-year"
+                     min="25" max="32"
+                     formControlName="expirationYear"
+                     autocomplete="off"
+              >
+              <div *ngIf="getExpirationDateInvalid()" class="alert">
+                <div *ngIf="expirationMonth?.errors?.['required'] || expirationYear?.errors?.['required']">
+                  This field is required
+                </div>
+                <div *ngIf="expirationMonth?.errors?.['min'] || expirationMonth?.errors?.['max']">
+                  Expiration month must be between 1 and 12
+                </div>
+                <div *ngIf="expirationYear?.errors?.['min'] || expirationYear?.errors?.['max']">
+                  Expiration month must be between 25 and 32
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div id="cvv-container">
+            <label for="CVV">CVV</label>
+            <input type="text" id="CVV" size="4" formControlName="cvv" autocomplete="off">
+            <div *ngIf="(cvv?.dirty || cvv?.touched) && cvv?.invalid" class="alert">
+              <div *ngIf="cvv?.errors?.['required']">This field is required</div>
+              <div *ngIf="cvv?.errors?.['pattern']">CVV must have 3 or 4 digits</div>
+            </div>
+          </div>
+
+          <div id="TC-check-container">
+            <input type="checkbox" id="TC-check" formControlName="tcCheck">
+            <label for="TC-check">I accept the terms and conditions</label>
+            <div *ngIf="tcCheck?.invalid" class="alert">
+              You must accept the terms and conditions
+            </div>
+          </div>
+
+          <div id="card-save-check-container">
+            <input type="checkbox" id="card-save-check" formControlName="saveCardNumber">
+            <label for="card-save-check">I would like to save my card details for future payments</label>
+          </div>
+
+          <div id="button-container">
+            <button type="submit" title="Proceed to payment" [disabled]="!paymentForm.valid">Proceed to payment</button>
+          </div>
+
+        </div>
+
+      </form>
+    </section>
+  </div>
+
+</main>

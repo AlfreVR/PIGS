@@ -1,0 +1,160 @@
+.pricing-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.pricing-card {
+  width: 300px;
+  height: 450px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.plan-title {
+  font-size: 24px; /* Tamaño de la fuente */
+  font-weight: bold; /* Texto en negrita */
+  text-transform: uppercase; /* Transformar el texto a mayúsculas */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía moderna */
+  color: #333333; /* Color oscuro para mayor legibilidad */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
+  background-color: #f0f8ff; /* Fondo suave para resaltar el texto */
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+  display: inline-block; /* Para que no ocupe todo el ancho */
+  margin: 5px 0; /* Espacio alrededor */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra de caja para resaltar */
+}
+.plan-title:hover {
+  background-color: #e0f7fa; /* Fondo ligeramente más claro al pasar el mouse */
+  color: #00796b; /* Color de texto al pasar el mouse */
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño para dar efecto de interacción */
+  transition: all 0.3s ease; /* Suaviza la transición */
+}
+
+.price {
+  font-size: 28px; /* Tamaño grande para que destaque */
+  font-weight: bold; /* Negrita para resaltar el precio */
+  color: #28a745; /* Un color verde que sugiera éxito o una oferta especial */
+  background-color: #ffffff; /* Fondo blanco para resaltar sobre fondos oscuros */
+  padding: 10px 20px; /* Espaciado alrededor del texto */
+  border-radius: 12px; /* Bordes redondeados */
+  display: inline-block; /* Para que no ocupe todo el ancho */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para un toque moderno */
+  margin-top: 10px; /* Un poco de espacio encima del precio */
+  text-align: center; /* Alineación centrada */
+  transition: all 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+
+.price span {
+  font-size: 20px; /* Tamaño del texto que acompañe el precio (por ejemplo, USD) */
+  font-weight: normal; /* Normal para el texto adicional como la moneda */
+}
+
+.price:hover {
+  background-color: #f1f1f1; /* Fondo más claro al pasar el mouse */
+  color: #218838; /* Color verde más oscuro */
+  transform: scale(1.05); /* Escala ligeramente el precio al pasar el ratón */
+}
+
+.price .discount {
+  font-size: 18px; /* Tamaño de la fuente para los precios con descuento */
+  color: #dc3545; /* Color rojo para el descuento */
+  text-decoration: line-through; /* Tachado para el precio original */
+  margin-left: 10px; /* Separación entre el precio original y el descuento */
+}
+
+.features,
+.featuresNOT {
+  list-style-type: none; /* Eliminamos los puntos predeterminados */
+  padding: 0;
+  margin: 0;
+}
+.features li {
+  font-size: 16px;
+  margin: 5px 0;
+  position: relative; /* Para poder usar el pseudo-elemento */
+  padding-left: 25px; /* Espacio para el check */
+}
+
+.featuresNOT li {
+  font-size: 16px;
+  margin: 5px 0;
+  position: relative; /* Para poder usar el pseudo-elemento */
+  padding-left: 25px; /* Espacio para el check */
+}
+
+.features li::before {
+  content: "✔"; /* Símbolo de check */
+  color: #28a745; /* Color verde */
+  position: absolute; /* Posición del check */
+  left: 0; /* Alineado a la izquierda */
+  top: 0; /* Alineado al inicio del texto */
+  font-size: 18px; /* Tamaño del check */
+}
+
+.featuresNOT li::before {
+  content: "❌"; /* Símbolo de X */
+  color: #dc3545; /* Color rojo para la X */
+  position: absolute; /* Posición de la X */
+  left: 0; /* Alineado a la izquierda */
+  top: 0; /* Alineado al inicio del texto */
+  font-size: 18px; /* Tamaño de la X */
+}
+.features li:hover,
+.featuresNOT li:hover {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el ratón */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para mayor profundidad */
+}
+.features li {
+  background-color: #f8f9fa; /* Fondo suave para las características incluidas */
+  border: 1px solid #ddd; /* Borde sutil */
+}
+
+.featuresNOT li {
+  background-color: #f8d7da; /* Fondo suave en rojo para las características no incluidas */
+  border: 1px solid rgba(220, 53, 69, 0.3); /* Borde más suave con opacidad en rojo */
+}
+.features li:not(:last-child),
+.featuresNOT li:not(:last-child) {
+  border-bottom: 1px solid #ddd; /* Línea gris clara */
+}
+
+
+.btn-elegir-plan {
+  font-size: 18px; /* Tamaño de texto adecuado */
+  font-weight: bold; /* Negrita para hacerlo más destacado */
+  color: #ffffff; /* Texto blanco para un contraste claro */
+  background-color: #007bff; /* Un color azul brillante */
+  border: none; /* Sin borde por defecto */
+  padding: 12px 30px; /* Espaciado para hacerlo más grande y atractivo */
+  border-radius: 30px; /* Bordes redondeados para una apariencia moderna */
+  cursor: pointer; /* Cambia el cursor para indicar interactividad */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  transition: all 0.3s ease; /* Suaviza la transición cuando cambia el estilo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para darle profundidad */
+  display: inline-block; /* Para que no ocupe todo el ancho */
+  margin-top: 15px; /* Un poco de espacio arriba */
+}
+
+.btn-elegir-plan:hover {
+  background-color: #0056b3; /* Color azul más oscuro al pasar el ratón */
+  transform: scale(1.1); /* Hace que el botón se agrande un poco */
+}
+
+.btn-elegir-plan:active {
+  background-color: #004085; /* Color más oscuro al hacer clic */
+  transform: scale(1.05); /* Reduce ligeramente el tamaño al hacer clic */
+}
+
+.btn-elegir-plan:focus {
+  outline: none; /* Elimina el borde de enfoque predeterminado */
+  box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5); /* Sombra azul cuando el botón tiene enfoque */
+}
+
