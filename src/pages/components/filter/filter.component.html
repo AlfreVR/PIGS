@@ -1,1 +1,78 @@
-<p>filter works!</p>
+<aside>
+  <label>Number of vCPUs</label>
+  <div id="vcpu-range-selector-container" class="double-selector">
+
+    <input type="range" min="2" max="8" id="vcpu-range-min" class="double-selector-min" value="{{minCPUS}}">
+    <input type="range" min="2" max="8" id="vcpu-range-max" class="double-selector-max" value="{{maxCPUS}}">
+
+    <div class="values-container">
+
+      <label>Min</label>
+      <input type="number" value="{{minCPUS}}">
+
+      <label>Max</label>
+      <input type="number" value="{{maxCPUS}}">
+
+    </div>
+
+  </div>
+
+  <label>Storage</label>
+  <div id="storage-range-selector-container" class="double-selector">
+    <input type="range" min="128" max="1024" id="storage-range-min" class="double-selector-min" value="{{minStorage}}">
+    <input type="range" min="128" max="1024" id="storage-range-max" class="double-selector-max" value="{{maxStorage}}">
+
+    <div class="values-container">
+
+      <label>Min</label>
+      <input type="number" value="{{minStorage}}">
+
+      <label>Max</label>
+      <input type="number" value="{{maxStorage}}">
+
+    </div>
+
+  </div>
+
+  <label>RAM Memory</label>
+  <div id="ram-selector-container" class="double-selector">
+    <input type="range" min="4" max="64" id="ram-range-min" class="double-selector-min" value="{{minMemory}}">
+    <input type="range" min="4" max="64" id="ram-range-max" class="double-selector-max" value="{{maxMemory}}">
+
+    <div class="values-container">
+
+      <label>Min</label>
+      <input type="number" value="{{minMemory}}">
+
+      <label>Max</label>
+      <input type="number" value="{{maxMemory}}">
+
+    </div>
+
+  </div>
+
+  <label>Price</label>
+  <div id="price-selector-container" class="double-selector">
+    <input type="range" min="1" max="50" id="price-range-min" class="double-selector-min" value="{{minPrice}}">
+    <input type="range" min="1" max="50" id="price-range-max" class="double-selector-max" value="{{maxPrice}}">
+
+    <div class="values-container">
+
+      <label>Min</label>
+      <input type="number" value="{{minPrice}}">
+
+      <label>Max</label>
+      <input type="number" value="{{maxPrice}}">
+
+    </div>
+
+  </div>
+
+ <div id="name-input-container">
+
+   <label>Name</label>
+   <input type="text">
+
+ </div>
+
+</aside>
