@@ -85,11 +85,11 @@ div#details-container details#feature-list ul {
 }
 
 div#details-container details#feature-list li::before {
-  content: "";
+  content: "✔";
+  color: #28a745;
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-image: url('/src/assets/check.png');
   background-size: cover;
   margin-right: 8px;
 }
