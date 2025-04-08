@@ -79,3 +79,15 @@ div.values-container input[type=number] {
   border: 1px solid black;
   border-radius: 25px;
 }
+
+input[type=text] {
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+
+label {
+  background-color: #598392;
+  border-radius: 25px;
+  margin: 2px;
+}
