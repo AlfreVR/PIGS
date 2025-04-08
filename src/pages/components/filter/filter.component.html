@@ -2,16 +2,22 @@
   <label>Number of vCPUs</label>
   <div id="vcpu-range-selector-container" class="double-selector">
 
-    <input type="range" min="2" max="8" id="vcpu-range-min" class="double-selector-min" value="{{minCPUS}}">
-    <input type="range" min="2" max="8" id="vcpu-range-max" class="double-selector-max" value="{{maxCPUS}}">
+    <input type="range" min="{{minCPUS}}" max="{{maxCPUS}}"
+           id="vcpu-range-min" class="double-selector-min" [(ngModel)]="selectedMinCPUS"
+           (input)="onInputChange($event, this.selectedMinCPUS)">
+    <input type="range" min="{{minCPUS}}" max="{{maxCPUS}}"
+           id="vcpu-range-max" class="double-selector-max" [(ngModel)]="selectedMaxCPUS"
+           (input)="onInputChange($event, this.selectedMaxCPUS)">
 
     <div class="values-container">
 
       <label>Min</label>
-      <input type="number" value="{{minCPUS}}">
+      <input type="number" id="vcpu-input-min"
+             min="{{minCPUS}}" max="{{selectedMaxCPUS}}" [(ngModel)]="selectedMinCPUS">
 
       <label>Max</label>
-      <input type="number" value="{{maxCPUS}}">
+      <input type="number" id="vcpu-input-max"
+             min="{{selectedMinCPUS}}" max="{{maxCPUS}}" [(ngModel)]="selectedMaxCPUS">
 
     </div>
 
@@ -19,16 +25,22 @@
 
   <label>Storage</label>
   <div id="storage-range-selector-container" class="double-selector">
-    <input type="range" min="128" max="1024" id="storage-range-min" class="double-selector-min" value="{{minStorage}}">
-    <input type="range" min="128" max="1024" id="storage-range-max" class="double-selector-max" value="{{maxStorage}}">
+    <input type="range" min="{{minStorage}}" max="{{maxStorage}}"
+           id="storage-range-min" class="double-selector-min" [(ngModel)]="selectedMinStorage"
+           (input)="onInputChange($event, this.selectedMinStorage)">
+    <input type="range" min="{{minStorage}}" max="{{maxStorage}}"
+           id="storage-range-max" class="double-selector-max" [(ngModel)]="selectedMaxStorage"
+           (input)="onInputChange($event, this.selectedMaxStorage)">
 
     <div class="values-container">
 
       <label>Min</label>
-      <input type="number" value="{{minStorage}}">
+      <input type="number" id="storage-input-min"
+             min="{{minStorage}} max={{selectedMaxStorage}}" [(ngModel)]="selectedMinStorage">
 
       <label>Max</label>
-      <input type="number" value="{{maxStorage}}">
+      <input type="number" id="storage-input-max"
+             min="{{selectedMinStorage}}" max="{{maxStorage}}" [(ngModel)]="selectedMaxStorage">
 
     </div>
 
@@ -36,16 +48,22 @@
 
   <label>RAM Memory</label>
   <div id="ram-selector-container" class="double-selector">
-    <input type="range" min="4" max="64" id="ram-range-min" class="double-selector-min" value="{{minMemory}}">
-    <input type="range" min="4" max="64" id="ram-range-max" class="double-selector-max" value="{{maxMemory}}">
+    <input type="range" min="{{minMemory}}" max="{{maxMemory}}"
+           id="ram-range-min" class="double-selector-min" [(ngModel)]="selectedMinMemory"
+           (input)="onInputChange($event, this.selectedMinMemory)">
+    <input type="range" min="{{minMemory}}" max="{{maxMemory}}"
+           id="ram-range-max" class="double-selector-max" [(ngModel)]="selectedMaxMemory"
+           (input)="onInputChange($event, this.selectedMaxMemory)">
 
     <div class="values-container">
 
       <label>Min</label>
-      <input type="number" value="{{minMemory}}">
+      <input type="number" id="ram-input-min"
+             min="{{minMemory}}" max="{{selectedMaxMemory}}" [(ngModel)]="selectedMinMemory">
 
       <label>Max</label>
-      <input type="number" value="{{maxMemory}}">
+      <input type="number" id="ram-input-max"
+             min="{{selectedMinMemory}}" max="{{maxMemory}}" [(ngModel)]="selectedMaxMemory">
 
     </div>
 
@@ -53,16 +71,22 @@
 
   <label>Price</label>
   <div id="price-selector-container" class="double-selector">
-    <input type="range" min="1" max="50" id="price-range-min" class="double-selector-min" value="{{minPrice}}">
-    <input type="range" min="1" max="50" id="price-range-max" class="double-selector-max" value="{{maxPrice}}">
+    <input type="range" min="{{minPrice}}" max="{{maxPrice}}"
+           id="price-range-min" class="double-selector-min" [(ngModel)]="selectedMinPrice"
+           (input)="onInputChange($event, this.selectedMinPrice)">
+    <input type="range" min="{{minPrice}}" max="{{maxPrice}}"
+           id="price-range-max" class="double-selector-max" [(ngModel)]="selectedMaxPrice"
+           (input)="onInputChange($event, this.selectedMaxPrice)">
 
     <div class="values-container">
 
       <label>Min</label>
-      <input type="number" value="{{minPrice}}">
+      <input type="number" id="price-input-min"
+             min="{{minPrice}}" max="{{selectedMaxPrice}}" [(ngModel)]="selectedMinPrice">
 
       <label>Max</label>
-      <input type="number" value="{{maxPrice}}">
+      <input type="number" id="price-input-max"
+             min="{{selectedMinPrice}}" max="{{maxPrice}}" [(ngModel)]="selectedMaxPrice">
 
     </div>
 
@@ -71,7 +95,7 @@
  <div id="name-input-container">
 
    <label>Name</label>
-   <input type="text">
+   <input type="text" [(ngModel)]="name">
 
  </div>
 
