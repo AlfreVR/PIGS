@@ -8,6 +8,8 @@
   align-items: flex-start;
   position: relative;
   margin: 15px auto;
+  font-family: sans-serif;
+  border: solid 2px #EFF6E0;
 }
 
 

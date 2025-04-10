@@ -1,5 +1,6 @@
-.container {
-  max-width: 80%;
-  margin: auto;
-  text-align: center;
+.servers-container {
+  background-color: #01161E;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  width: 50%;
 }
