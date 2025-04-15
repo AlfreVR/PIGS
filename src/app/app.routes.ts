@@ -9,4 +9,5 @@ export const routes: Routes = [
   { path: "plans", component: PlansComponent },
   {path: 'firestore', component: FirestoreComponent},
   {path: 'servers', component: ServerShopComponent},
+  {path: 'auth', loadComponent:() => import('../pages/auth-page/auth-page.component').then(m => m.AuthPageComponent)}
 ];

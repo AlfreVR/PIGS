@@ -1,0 +1,24 @@
+<div class="auth-container">
+  <h2>{{ isLogin ? 'Iniciar Sesión' : 'Registrarse' }}</h2>
+
+  <form (ngSubmit)="submitForm()" #authForm="ngForm">
+    <input type="email" [(ngModel)]="email" name="email" placeholder="Correo" required />
+    <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" required />
+
+    <!-- Solo mostrar si está en modo registro -->
+    <ng-container *ngIf="!isLogin">
+      <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Repetir Contraseña" required />
+      <input type="text" [(ngModel)]="displayName" name="displayName" placeholder="Nombre" required />
+      <input type="date" [(ngModel)]="birthDate" name="birthDate" placeholder="Fecha de nacimiento" required />
+    </ng-container>
+
+    <button type="submit">{{ isLogin ? 'Entrar' : 'Crear Cuenta' }}</button>
+  </form>
+
+  <p (click)="toggleMode()">
+    {{ isLogin ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia sesión' }}
+  </p>
+
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>
+
