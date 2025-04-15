@@ -11,22 +11,22 @@ import {FormsModule} from '@angular/forms';
 })
 export class FilterComponent {
   private _selectedMinCPUS: number = 2;
-  private _selectedMaxCPUS: number = 4;
+  private _selectedMaxCPUS: number = 8;
   private _minCPUS: number = 2;
   private _maxCPUS: number = 8;
 
-  private _selectedMinStorage: number = 256;
-  private _selectedMaxStorage: number = 512;
+  private _selectedMinStorage: number = 128;
+  private _selectedMaxStorage: number = 1024;
   private _minStorage: number = 128;
   private _maxStorage: number = 1024;
 
-  private _selectedMinMemory: number = 8;
-  private _selectedMaxMemory: number = 32;
+  private _selectedMinMemory: number = 4;
+  private _selectedMaxMemory: number = 64;
   private _minMemory: number = 4;
   private _maxMemory: number = 64;
 
-  private _selectedMinPrice: number = 2;
-  private _selectedMaxPrice: number = 16;
+  private _selectedMinPrice: number = 1;
+  private _selectedMaxPrice: number = 50;
   private _minPrice: number = 1;
   private _maxPrice: number = 50;
 
@@ -232,5 +232,18 @@ export class FilterComponent {
       selectedMaxPrice: this.selectedMaxPrice,
       name: this.name
     })
+  }
+
+  resetValues() {
+    this.selectedMinCPUS = this.minCPUS;
+    this.selectedMaxCPUS = this.maxCPUS;
+    this.selectedMinStorage = this.minStorage;
+    this.selectedMaxStorage = this.maxStorage;
+    this.selectedMinMemory = this.minMemory;
+    this.selectedMaxMemory = this.maxMemory;
+    this.selectedMinPrice = this.minPrice;
+    this.selectedMaxPrice = this.maxPrice;
+    this.name = "";
+    this.emitEvent();
   }
 }
