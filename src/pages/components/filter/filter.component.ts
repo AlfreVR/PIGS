@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 @Component({
@@ -31,6 +31,18 @@ export class FilterComponent {
   private _maxPrice: number = 50;
 
   private _name: string = '';
+
+  @Output() filterEventEmitter = new EventEmitter<{
+    selectedMinCPUS: number,
+    selectedMaxCPUS: number,
+    selectedMinStorage: number,
+    selectedMaxStorage: number,
+    selectedMinMemory: number,
+    selectedMaxMemory: number,
+    selectedMinPrice: number,
+    selectedMaxPrice: number,
+    name: string
+  }>();
 
 
   get selectedMinCPUS(): number {
@@ -206,5 +218,19 @@ export class FilterComponent {
     if (event.target instanceof HTMLInputElement) {
       event.target.value = value.toString();
     }
+  }
+
+  protected emitEvent() {
+    this.filterEventEmitter.emit({
+      selectedMinCPUS: this.selectedMinCPUS,
+      selectedMaxCPUS: this.selectedMaxCPUS,
+      selectedMinStorage: this.selectedMinStorage,
+      selectedMaxStorage: this.selectedMaxStorage,
+      selectedMinMemory: this.selectedMinMemory,
+      selectedMaxMemory: this.selectedMaxMemory,
+      selectedMinPrice: this.selectedMinPrice,
+      selectedMaxPrice: this.selectedMaxPrice,
+      name: this.name
+    })
   }
 }
