@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import { Firestore, doc, setDoc } from '@angular/fire/firestore';
-import {NgIf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-auth-page',
   templateUrl: './auth-page.component.html',
   imports: [
     FormsModule,
-    NgIf
+    NgIf,
+    NgForOf
   ],
   styleUrls: ['./auth-page.component.css']
 })
@@ -25,6 +26,55 @@ export class AuthPageComponent {
   errorMessage = '';
 
   constructor(private authService: AuthService, private router: Router, private firestore: Firestore) {}
+
+  //Errores
+  getFriendlyAuthErrorMessage(code: string): string {
+    switch (code) {
+      case 'auth/invalid-email':
+        return 'El correo electrónico no es válido.';
+      case 'auth/user-not-found':
+        return 'No se encontró una cuenta con este correo.';
+      case 'auth/wrong-password':
+        return 'La contraseña es incorrecta.';
+      case 'auth/email-already-in-use':
+        return 'Este correo ya está registrado.';
+      case 'auth/weak-password':
+        return 'La contraseña es muy débil. Usa al menos 6 caracteres.';
+      case 'auth/missing-password':
+        return 'Por favor, ingresa una contraseña.';
+      case 'auth/missing-email':
+        return 'Por favor, ingresa un correo electrónico.';
+      default:
+        return 'Ocurrió un error inesperado. Intenta nuevamente.';
+    }
+  }
+
+  //Selector de nacimiento
+  birthDay: number | null = null;
+  birthMonth: number | null = null;
+  birthYear: number | null = null;
+
+  days: number[] = Array.from({ length: 31 }, (_, i) => i + 1);
+  months = [
+    { name: 'Enero', value: 1 },
+    { name: 'Febrero', value: 2 },
+    { name: 'Marzo', value: 3 },
+    { name: 'Abril', value: 4 },
+    { name: 'Mayo', value: 5 },
+    { name: 'Junio', value: 6 },
+    { name: 'Julio', value: 7 },
+    { name: 'Agosto', value: 8 },
+    { name: 'Septiembre', value: 9 },
+    { name: 'Octubre', value: 10 },
+    { name: 'Noviembre', value: 11 },
+    { name: 'Diciembre', value: 12 }
+  ];
+  years: number[] = [];
+
+  ngOnInit(): void {
+    const currentYear = new Date().getFullYear();
+    this.years = Array.from({ length: currentYear - 1900 + 1 }, (_, i) => currentYear - i);
+  }
 
   toggleMode() {
     this.isLogin = !this.isLogin;
@@ -43,13 +93,13 @@ export class AuthPageComponent {
       } else {
         const userCredential = await this.authService.register(this.email, this.password);
 
-        // Guardamos los datos extras en Firestore
         const uid = userCredential.user.uid;
         const userRef = doc(this.firestore, `users/${uid}`);
+        const birthDate = new Date(this.birthYear!, this.birthMonth! - 1, this.birthDay!);
 
         await setDoc(userRef, {
           displayName: this.displayName,
-          birthDate: this.birthDate,
+          birthDate: birthDate,
           email: this.email,
           createdAt: new Date()
         });
@@ -57,7 +107,8 @@ export class AuthPageComponent {
 
       this.router.navigate(['/']);
     } catch (err: any) {
-      this.errorMessage = err.message;
+      console.error('Error durante autenticación o escritura:', err);
+      this.errorMessage = this.getFriendlyAuthErrorMessage(err.code||err.message);
     }
   }
 }

@@ -9,7 +9,30 @@
     <ng-container *ngIf="!isLogin">
       <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Repetir Contraseña" required />
       <input type="text" [(ngModel)]="displayName" name="displayName" placeholder="Nombre" required />
-      <input type="date" [(ngModel)]="birthDate" name="birthDate" placeholder="Fecha de nacimiento" required />
+      <div class="date-selectors">
+        <label>
+          Día:
+          <select [(ngModel)]="birthDay" name="birthDay" required>
+            <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+          </select>
+        </label>
+
+        <label>
+          Mes:
+          <select [(ngModel)]="birthMonth" name="birthMonth" required>
+            <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
+          </select>
+        </label>
+
+        <label>
+          Año:
+          <select [(ngModel)]="birthYear" name="birthYear" required>
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+          </select>
+        </label>
+      </div>
+
+
     </ng-container>
 
     <button type="submit">{{ isLogin ? 'Entrar' : 'Crear Cuenta' }}</button>
