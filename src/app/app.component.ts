@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {Router, NavigationEnd, RouterOutlet} from '@angular/router';
-import {FooterComponent} from './footer/footer.component';
-import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from '../pages/components/footer/footer.component';
+import {HeaderComponent} from '../pages/components/header/header.component';
 import {NgIf} from '@angular/common';
 
 @Component({

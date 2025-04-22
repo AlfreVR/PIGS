@@ -3,7 +3,7 @@ import { PaymentComponent } from '../pages/payment/payment.component';
 import { PlansComponent } from '../pages/plans/plans.component';
 import { FirestoreComponent } from '../pages/firestore/firestore.component';
 import { ServerShopComponent } from '../pages/server-shop/server-shop.component';
-import {LandingPageComponent} from './landing-page/landing-page.component';
+import {LandingPageComponent} from '../pages/landing-page/landing-page.component';
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent},
