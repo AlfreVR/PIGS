@@ -1,14 +1,29 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {HeaderComponent} from './header/header.component';
+import {Router, NavigationEnd, RouterOutlet} from '@angular/router';
 import {FooterComponent} from './footer/footer.component';
+import {HeaderComponent} from './header/header.component';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [
+    RouterOutlet,
+    FooterComponent,
+    HeaderComponent,
+    NgIf
+  ],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pruebawebstorm';
+  showLayout = true;
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        const currentUrl = event.urlAfterRedirects;
+        this.showLayout = !currentUrl.startsWith('/auth');
+      }
+    });
+  }
 }
