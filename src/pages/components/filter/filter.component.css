@@ -1,0 +1,113 @@
+aside {
+  border: 2px solid #EFF6E0;
+  background-color: #124559;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+aside div {
+  display: grid;
+}
+
+div.double-selector input[type=range] {
+  appearance: none;
+  position: absolute;
+  pointer-events: none;
+  height: 1px;
+  margin-top: 10px;
+}
+
+div.double-selector input[type=range].double-selector-min {
+  height: 0;
+  z-index: 1;
+}
+
+div.double-selector input[type=range]::-webkit-slider-thumb {
+  pointer-events: all;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  background-color: #AEC3B0;
+  border-radius: 50%;
+  border-color: #EFF6E0;
+  box-shadow: 0 0 0 1px #C6C6C6;
+}
+
+div.double-selector input[type=range]::-moz-range-thumb {
+  pointer-events: all;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  background-color: #AEC3B0;
+  border-radius: 50%;
+  border-color: #EFF6E0;
+  box-shadow: 0 0 0 1px #C6C6C6;
+}
+
+div.double-selector input[type=range]::-ms-thumb {
+  pointer-events: all;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  background-color: #AEC3B0;
+  border-radius: 50%;
+  border-color: #EFF6E0;
+  box-shadow: 0 0 0 1px #C6C6C6;
+}
+
+
+div.values-container {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+}
+
+div.values-container label {
+  grid-row: 1;
+}
+
+div.values-container input[type=number] {
+  grid-row: 2;
+  width: 5em;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+
+input[type=text] {
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+
+label {
+  background-color: #598392;
+  border-radius: 25px;
+  margin: 2px;
+}
+
+div#clear-button-container {
+  margin-top: 5px;
+}
+
+div#clear-button-container button {
+  background-color: #AEC3B0;
+  border: 1px solid #EFF6E0;
+  border-radius: 25px;
+  width: 100%;
+  height: 100%;
+}
+
+div#clear-button-container button:hover {
+  background-color: #EFF6E0;
+}
+
+div#clear-button-container button:active {
+  background-color: #7ba17e;
+}

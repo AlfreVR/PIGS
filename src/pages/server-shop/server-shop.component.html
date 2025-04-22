@@ -1,11 +1,14 @@
 <div class="servers-container">
 
-
+  <app-filter (filterEventEmitter)="getEvent($event)"></app-filter>
   <div class="servers-list">
     <app-server-item
-      *ngFor="let server of servers"
+      *ngFor="let server of filteredServers"
       [server]="server">
     </app-server-item>
+    <div class="no-server-alert" *ngIf="filteredServers.length === 0">
+      No server matching selected criteria
+    </div>
   </div>
 </div>
 

@@ -1,0 +1,106 @@
+<aside>
+  <label>Number of vCPUs</label>
+  <div id="vcpu-range-selector-container" class="double-selector">
+
+    <input type="range" min="{{minCPUS}}" max="{{maxCPUS}}"
+           id="vcpu-range-min" class="double-selector-min" [(ngModel)]="selectedMinCPUS"
+           (input)="onInputChange($event, this.selectedMinCPUS)" (mouseup)="emitEvent()">
+    <input type="range" min="{{minCPUS}}" max="{{maxCPUS}}"
+           id="vcpu-range-max" class="double-selector-max" [(ngModel)]="selectedMaxCPUS"
+           (input)="onInputChange($event, this.selectedMaxCPUS)" (mouseup)="emitEvent()">
+
+    <div class="values-container">
+
+      <label>Min</label>
+      <input type="number" id="vcpu-input-min"
+             min="{{minCPUS}}" max="{{selectedMaxCPUS}}" [(ngModel)]="selectedMinCPUS" (input)="emitEvent()">
+
+      <label>Max</label>
+      <input type="number" id="vcpu-input-max"
+             min="{{selectedMinCPUS}}" max="{{maxCPUS}}" [(ngModel)]="selectedMaxCPUS" (input)="emitEvent()">
+
+    </div>
+
+  </div>
+
+  <label>Storage</label>
+  <div id="storage-range-selector-container" class="double-selector">
+    <input type="range" min="{{minStorage}}" max="{{maxStorage}}"
+           id="storage-range-min" class="double-selector-min" [(ngModel)]="selectedMinStorage"
+           (input)="onInputChange($event, this.selectedMinStorage)" (mouseup)="emitEvent()">
+    <input type="range" min="{{minStorage}}" max="{{maxStorage}}"
+           id="storage-range-max" class="double-selector-max" [(ngModel)]="selectedMaxStorage"
+           (input)="onInputChange($event, this.selectedMaxStorage)" (mouseup)="emitEvent()">
+
+    <div class="values-container">
+
+      <label>Min</label>
+      <input type="number" id="storage-input-min"
+             min="{{minStorage}} max={{selectedMaxStorage}}" [(ngModel)]="selectedMinStorage" (input)="emitEvent()">
+
+      <label>Max</label>
+      <input type="number" id="storage-input-max"
+             min="{{selectedMinStorage}}" max="{{maxStorage}}" [(ngModel)]="selectedMaxStorage" (input)="emitEvent()">
+
+    </div>
+
+  </div>
+
+  <label>RAM Memory</label>
+  <div id="ram-selector-container" class="double-selector">
+    <input type="range" min="{{minMemory}}" max="{{maxMemory}}"
+           id="ram-range-min" class="double-selector-min" [(ngModel)]="selectedMinMemory"
+           (input)="onInputChange($event, this.selectedMinMemory)" (mouseup)="emitEvent()">
+    <input type="range" min="{{minMemory}}" max="{{maxMemory}}"
+           id="ram-range-max" class="double-selector-max" [(ngModel)]="selectedMaxMemory"
+           (input)="onInputChange($event, this.selectedMaxMemory)" (mouseup)="emitEvent()">
+
+    <div class="values-container">
+
+      <label>Min</label>
+      <input type="number" id="ram-input-min"
+             min="{{minMemory}}" max="{{selectedMaxMemory}}" [(ngModel)]="selectedMinMemory" (input)="emitEvent()">
+
+      <label>Max</label>
+      <input type="number" id="ram-input-max"
+             min="{{selectedMinMemory}}" max="{{maxMemory}}" [(ngModel)]="selectedMaxMemory" (input)="emitEvent()">
+
+    </div>
+
+  </div>
+
+  <label>Price</label>
+  <div id="price-selector-container" class="double-selector">
+    <input type="range" min="{{minPrice}}" max="{{maxPrice}}"
+           id="price-range-min" class="double-selector-min" [(ngModel)]="selectedMinPrice"
+           (input)="onInputChange($event, this.selectedMinPrice)" (mouseup)="emitEvent()">
+    <input type="range" min="{{minPrice}}" max="{{maxPrice}}"
+           id="price-range-max" class="double-selector-max" [(ngModel)]="selectedMaxPrice"
+           (input)="onInputChange($event, this.selectedMaxPrice)" (mouseup)="emitEvent()">
+
+    <div class="values-container">
+
+      <label>Min</label>
+      <input type="number" id="price-input-min"
+             min="{{minPrice}}" max="{{selectedMaxPrice}}" [(ngModel)]="selectedMinPrice" (input)="emitEvent()">
+
+      <label>Max</label>
+      <input type="number" id="price-input-max"
+             min="{{selectedMinPrice}}" max="{{maxPrice}}" [(ngModel)]="selectedMaxPrice" (input)="emitEvent()">
+
+    </div>
+
+  </div>
+
+ <div id="name-input-container">
+
+   <label>Name</label>
+   <input type="text" [(ngModel)]="name" (input)="emitEvent()">
+
+ </div>
+
+  <div id="clear-button-container">
+    <button (click)="resetValues()">Clear filters</button>
+  </div>
+
+</aside>
