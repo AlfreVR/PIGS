@@ -1,8 +1,8 @@
 .servers-container {
   background-color: #01161E;
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  width: 50%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .no-server-alert {
