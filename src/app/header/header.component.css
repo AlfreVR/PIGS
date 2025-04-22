@@ -1,0 +1,62 @@
+/* Estilos generales del header */
+.header {
+  background-color: #007bff; /* Azul corporativo */
+  padding: 15px 0;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor flexible */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Estilos del logo */
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+/* Estilos de la barra de navegación */
+.nav a {
+  text-decoration: none;
+  color: white;
+  margin: 0 15px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+/* Cambio de color al pasar el mouse */
+.nav a:hover {
+  color: #ffdd57; /* Amarillo vibrante */
+}
+
+/* Resaltar la opción activa */
+.nav .active {
+  border-bottom: 2px solid white;
+  padding-bottom: 3px;
+}
+
+/* Diseño responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav {
+    margin-top: 10px;
+  }
+
+  .nav a {
+    display: block;
+    margin: 10px 0;
+  }
+}

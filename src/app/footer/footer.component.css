@@ -1,0 +1,68 @@
+/* Estilos generales del footer */
+.footer {
+  background-color: #222; /* Fondo oscuro */
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* Contenedor flexible */
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Secciones del footer */
+.footer-section {
+  width: 30%;
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+/* Títulos de las secciones */
+.footer-section h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #ffdd57; /* Amarillo vibrante */
+}
+
+/* Enlaces del footer */
+.footer-section a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: #ffdd57; /* Efecto hover */
+}
+
+/* Información de contacto */
+.footer-section p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* Iconos de redes sociales */
+.social-icons a {
+  color: white;
+  font-size: 20px;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffdd57;
+}
+
+/* Sección de derechos reservados */
+.footer-bottom {
+  background-color: #111;
+  padding: 10px 0;
+  font-size: 14px;
+}
