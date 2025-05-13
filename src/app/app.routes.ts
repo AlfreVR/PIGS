@@ -12,6 +12,8 @@ export const routes: Routes = [
   {path: 'firestore', component: FirestoreComponent},
   {path: 'servers', component: ServerShopComponent},
   {path: 'auth', loadComponent:() => import('../pages/auth-page/auth-page.component').then(m => m.AuthPageComponent)},
+  {path: 'about-us',
+    loadComponent: () => import('../pages/about-us/about-us.component').then(m => m.AboutUsComponent)},
   { path: '**', redirectTo: '' } // Redirecciona rutas desconocidas a la landing
 
 ];

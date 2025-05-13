@@ -1,0 +1,218 @@
+.about-us-container {
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  text-align: center;
+  background-color: #01161E;
+  color: #EFF6E0;
+
+  .hero {
+    background-color: #124559;
+    color: #EFF6E0;
+    padding: 30px;
+    border-radius: 8px;
+
+    h1 {
+      font-size: 2.5em;
+    }
+  }
+
+  h2 {
+    color: #EFF6E0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .our-team {
+    margin-top: 40px;
+
+    .team-carousel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    .team-card {
+      background-color: #AEC3B0;
+      color: #2E2E2E; // grigio scuro per maggiore leggibilità
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 550px;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .team-card h3 {
+      color: #EFF6E0;
+      font-size: 1.6em;
+      margin-bottom: 8px;
+      text-shadow: 1px 1px 2px #124559;
+    }
+
+    .team-card p {
+      color: #2E2E2E;
+      line-height: 1.6;
+    }
+
+    .team-card strong {
+      display: block;
+      margin-bottom: 10px;
+      color: #124559;
+      font-size: 1.1em;
+    }
+
+    .team-card .icon {
+      font-size: 3em;
+      margin-bottom: 15px;
+      color: #124559;
+    }
+
+    .arrow {
+      background-color: transparent;
+      border: none;
+      font-size: 2em;
+      color: #EFF6E0;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    .arrow.left {
+      margin-right: 10px;
+    }
+
+    .arrow.right {
+      margin-left: 10px;
+    }
+  }
+
+  .team-member, .stat, .policy {
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #AEC3B0;
+    color: #01161E;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+
+  .team-member h3, .stat h3, .policy h4 {
+    margin-bottom: 8px;
+    color: #01161E;
+  }
+
+  /* Hover effect */
+  .team-member:hover,
+  .stat:hover,
+  .policy:hover {
+    transform: scale(1.05);
+    background-color: #598392;
+    color: #EFF6E0;
+  }
+
+  /* Icone */
+  .icon {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #124559;
+  }
+
+  /* GRIGLIA NUMERI */
+  .our-numbers .numbers-grid {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .our-numbers {
+    padding: 0 20px;
+  }
+
+  .our-numbers .stat {
+    flex: 1 1 200px;
+    max-width: 250px;
+    margin: 0; // ← Rimuove lo spazio esterno
+    border-radius: 0; // ← Resetta angoli interni, vedremo sotto quelli esterni
+  }
+
+  .our-numbers .stat:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+  }
+
+  .our-numbers .stat:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+
+  .our-numbers .stat + .stat {
+    border-left: 1px solid #598392;
+  }
+
+
+  /* GRIGLIA POLICIES */
+  .policy {
+    background-color: #AEC3B0;
+    color: #01161E;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    max-width: 300px;
+    flex: 1 1 200px;
+
+    .icon {
+      font-size: 2em;
+      color: #124559;
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #01161E;
+    }
+
+    .short {
+      font-size: 0.95em;
+      opacity: 0.8;
+    }
+
+    .long {
+      margin-top: 15px;
+      font-size: 0.95em;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    &:hover {
+      transform: scale(1.03);
+      background-color: #598392;
+    }
+
+  }
+
+  .policies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+}

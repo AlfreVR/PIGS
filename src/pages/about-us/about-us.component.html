@@ -1,0 +1,56 @@
+<div class="about-us-container">
+  <section class="hero">
+    <h1>About Us</h1>
+    <p>We are four passionate Computer Science students from Las Palmas de Gran Canaria, providing top-notch server hosting solutions.</p>
+  </section>
+
+  <section class="our-team">
+    <h2>Our Team</h2>
+    <div class="team-carousel">
+      <button class="arrow left" (click)="prevMember()">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <div class="team-card">
+        <i class="fas fa-user icon"></i>
+        <h3>{{ team[currentMemberIndex].name }}</h3>
+        <p><strong>{{ team[currentMemberIndex].role }}</strong></p>
+        <p>{{ team[currentMemberIndex].description }}</p>
+      </div>
+
+      <button class="arrow right" (click)="nextMember()">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </section>
+
+
+  <section class="our-numbers">
+    <h2>Our Numbers</h2>
+    <div class="numbers-grid">
+      <div class="stat">
+        <i class="fas fa-server icon"></i>
+        <h3>99.9%</h3>
+        <p>Guaranteed Uptime</p>
+      </div>
+      <div class="stat">
+        <i class="fas fa-headset icon"></i>
+        <h3>24/7</h3>
+        <p>Technical Support</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-policies">
+    <h2>Our Service Policies</h2>
+    <div class="policies-grid">
+      <div class="policy" (click)="togglePolicy(i)" *ngFor="let p of policies; let i = index">
+        <i class="{{ p.icon }} icon"></i>
+        <h4>{{ p.title }}</h4>
+        <p class="short">{{ p.short }}</p>
+        <p class="long" *ngIf="expandedIndex === i">{{ p.long }}</p>
+      </div>
+    </div>
+  </section>
+</div>
+
