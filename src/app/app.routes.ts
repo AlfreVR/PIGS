@@ -9,7 +9,6 @@ export const routes: Routes = [
   { path: '', component: LandingPageComponent},
   { path: "payment", component: PaymentComponent },
   { path: "plans", component: PlansComponent },
-  {path: 'firestore', component: FirestoreComponent},
   {path: 'servers', component: ServerShopComponent},
   {path: 'auth', loadComponent:() => import('../pages/auth-page/auth-page.component').then(m => m.AuthPageComponent)},
   {path: 'about-us',
