@@ -1,31 +1,31 @@
 <div class="auth-container">
-  <h2>{{ isLogin ? 'Iniciar Sesión' : 'Registrarse' }}</h2>
+  <h2>{{ isLogin ? 'Login' : 'Sign Up' }}</h2>
 
   <form (ngSubmit)="submitForm()" #authForm="ngForm">
-    <input type="email" [(ngModel)]="email" name="email" placeholder="Correo" required />
-    <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" required />
+    <input type="email" [(ngModel)]="email" name="email" placeholder="E-Mail" required />
+    <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required />
 
     <!-- Solo mostrar si está en modo registro -->
     <ng-container *ngIf="!isLogin">
-      <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Repetir Contraseña" required />
-      <input type="text" [(ngModel)]="displayName" name="displayName" placeholder="Nombre" required />
+      <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Repeat Pasword" required />
+      <input type="text" [(ngModel)]="displayName" name="displayName" placeholder="Name" required />
       <div class="date-selectors">
         <label>
-          Día:
+          Day:
           <select [(ngModel)]="birthDay" name="birthDay" required>
             <option *ngFor="let day of days" [value]="day">{{ day }}</option>
           </select>
         </label>
 
         <label>
-          Mes:
+          Month:
           <select [(ngModel)]="birthMonth" name="birthMonth" required>
             <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
           </select>
         </label>
 
         <label>
-          Año:
+          Year:
           <select [(ngModel)]="birthYear" name="birthYear" required>
             <option *ngFor="let year of years" [value]="year">{{ year }}</option>
           </select>
@@ -35,11 +35,11 @@
 
     </ng-container>
 
-    <button type="submit">{{ isLogin ? 'Entrar' : 'Crear Cuenta' }}</button>
+    <button type="submit">{{ isLogin ? 'Login' : 'Sign Up' }}</button>
   </form>
 
   <p (click)="toggleMode()">
-    {{ isLogin ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia sesión' }}
+    {{ isLogin ? 'No account? Sign Up' : 'Already have an account? Log in' }}
   </p>
 
   <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>

@@ -83,7 +83,7 @@ export class AuthPageComponent {
 
   async submitForm() {
     if (!this.isLogin && this.password !== this.confirmPassword) {
-      this.errorMessage = 'Las contraseñas no coinciden';
+      this.errorMessage = 'Passwords not match';
       return;
     }
 
