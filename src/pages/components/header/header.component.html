@@ -9,7 +9,8 @@
       <a routerLink="/">Home</a>
       <a routerLink="/plans">Plans</a>
       <a routerLink="/about-us">About Us</a>
-      <a routerLink="/auth">Log In</a>
+      <a *ngIf="!login" (click)="loginM()">Log In</a>
+      <a *ngIf="login" (click)="logOut()">Log Out</a>
     </nav>
   </div>
 </header>

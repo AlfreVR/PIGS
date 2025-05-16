@@ -56,18 +56,18 @@ export class AuthPageComponent {
 
   days: number[] = Array.from({ length: 31 }, (_, i) => i + 1);
   months = [
-    { name: 'Enero', value: 1 },
-    { name: 'Febrero', value: 2 },
-    { name: 'Marzo', value: 3 },
-    { name: 'Abril', value: 4 },
-    { name: 'Mayo', value: 5 },
-    { name: 'Junio', value: 6 },
-    { name: 'Julio', value: 7 },
-    { name: 'Agosto', value: 8 },
-    { name: 'Septiembre', value: 9 },
-    { name: 'Octubre', value: 10 },
-    { name: 'Noviembre', value: 11 },
-    { name: 'Diciembre', value: 12 }
+    { name: 'January', value: 1 },
+    { name: 'February', value: 2 },
+    { name: 'March', value: 3 },
+    { name: 'April', value: 4 },
+    { name: 'May', value: 5 },
+    { name: 'June', value: 6 },
+    { name: 'July', value: 7 },
+    { name: 'August', value: 8 },
+    { name: 'September', value: 9 },
+    { name: 'October', value: 10 },
+    { name: 'November', value: 11 },
+    { name: 'December', value: 12 }
   ];
   years: number[] = [];
 

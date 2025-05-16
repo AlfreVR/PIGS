@@ -10,21 +10,36 @@
 
         <details id="feature-list" open="open">
           <summary>Plan features</summary>
-          <ul *ngFor="let feature of planFeaturesIncluded">
-            <li>{{feature}}</li>
+          <ul *ngIf="plan">
+            <li *ngIf="plan.Feature1">{{ plan.Feature1 }}</li>
+            <li *ngIf="plan.Feature2">{{ plan.Feature2 }}</li>
+            <li *ngIf="plan.Feature3">{{ plan.Feature3 }}</li>
+            <li *ngIf="plan.Feature4">{{ plan.Feature4 }}</li>
+            <li *ngIf="plan.Feature5">{{ plan.Feature5 }}</li>
+            <li *ngIf="plan.Feature6">{{ plan.Feature6 }}</li>
+            <li *ngIf="plan.Feature7">{{ plan.Feature7 }}</li>
+            <li *ngIf="plan.Feature8">{{ plan.Feature8 }}</li>
           </ul>
+          <br *ngIf="!plan">
+          <label *ngIf="!plan">No plan selected</label>
+          <br *ngIf="!plan">
+            <button *ngIf="!plan" (click)="goToPlans()">Select Plan</button>
         </details>
 
         <details id="server-features-list" open="open">
           <summary>Server features</summary>
-          <ul>
+          <ul *ngIf="server">
             <li>Name: {{server.Name}}</li>
             <li>Disk: {{server.Disk}} GB</li>
             <li>CPU: {{server.CPU}} vCores</li>
             <li>RAM: {{server.RAM}} GB</li>
           </ul>
+          <br *ngIf="!server">
+          <label *ngIf="!server">No server selected</label>
+          <br *ngIf="!server">
+          <button *ngIf="!server" (click)="goToServers()" id="ServerSelect">Select Server</button>
         </details>
-
+      <button (click)="clear()" >Clear</button>
       </div>
 
     </section>

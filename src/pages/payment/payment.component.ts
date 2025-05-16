@@ -1,19 +1,52 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NgForOf, NgIf} from '@angular/common';
-import {Server} from '../../app/app.interfaces';
+import {Plans, Server} from '../../app/app.interfaces';
+import {FirestoreService} from '../../services/firestore.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {PaymentStateService} from '../../services/payment-state.service';
 
 @Component({
   selector: 'app-payment',
   imports: [
     ReactiveFormsModule,
     NgIf,
-    NgForOf
   ],
   templateUrl: './payment.component.html',
   styleUrl: './payment.component.css'
 })
 export class PaymentComponent {
+  plans: Plans[] =[];
+  server?: Server;
+  plan?: Plans;
+
+  constructor(
+    private firestoreService: FirestoreService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private paymentState: PaymentStateService
+  ) {}
+
+  ngOnInit() {
+    const params = this.route.snapshot.queryParams;
+    const serverId = params['serverId'];
+    const planId = params['planId'];
+
+    this.server = this.paymentState.getServer();
+    this.plan = this.paymentState.getPlan();
+
+    if (!this.server && serverId) {
+      this.firestoreService.getDocumentById<Server>('servers', serverId).subscribe(server => {
+        this.server = server;
+      });
+    }
+    if (!this.plan && planId) {
+      this.firestoreService.getDocumentById<Plans>('plans', planId).subscribe(plan => {
+        this.plan = plan;
+      })
+    }
+
+  }
 
   paymentForm = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -32,14 +65,6 @@ export class PaymentComponent {
     tcCheck: new FormControl(false, Validators.requiredTrue),
     saveCardNumber: new FormControl(true),
   });
-
-  server: Server = {
-    Name: "Eco & Econ",
-    Disk: 128,
-    CPU: 2,
-    RAM: 8,
-    Reserved: false,
-  };
 
   planFeaturesIncluded: Array<string> = ["Feature 1", "Feature 2", "Feature 3"];
 
@@ -134,5 +159,33 @@ export class PaymentComponent {
       && this.expirationYear?.invalid);
 
     return expirationMonthInvalid || expirationYearInvalid;
+  }
+
+  goToServers() {
+    this.router.navigate(['/servers'], {
+      queryParams: {
+        planId: this.plan?.id || null,
+        serverId: this.server?.id || null,
+      }
+    });
+  }
+
+  goToPlans() {
+    this.router.navigate(['/plans'], {
+      queryParams: {
+        planId: this.plan?.id || null,
+        serverId: this.server?.id || null,
+      }
+    });
+  }
+
+  clear() {
+    this.paymentState.clear();
+    this.router.navigate(['/payment'], {
+      queryParams: {
+        planId: null,
+        serverId: null
+      }
+    }).then(r => window.location.reload());
   }
 }
