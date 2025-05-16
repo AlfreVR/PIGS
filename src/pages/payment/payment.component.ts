@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {NgForOf, NgIf} from '@angular/common';
+import { NgIf} from '@angular/common';
 import {Plans, Server} from '../../app/app.interfaces';
 import {FirestoreService} from '../../services/firestore.service';
 import {ActivatedRoute, Router} from '@angular/router';
