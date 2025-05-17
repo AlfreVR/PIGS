@@ -188,4 +188,14 @@ export class PaymentComponent {
       }
     }).then(r => window.location.reload());
   }
+
+  goToLandingPage() {
+    this.paymentState.clear();
+    this.router.navigate(['/'], {
+      queryParams: {
+        planId: null,
+        serverId: null
+      }
+    }).then(r => window.location.reload());
+  }
 }
